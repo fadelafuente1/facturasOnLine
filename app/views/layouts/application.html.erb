@@ -11,7 +11,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" role="navigation">
     <div class="container">
-        <a class="navbar-brand" href="#">Brand</a>
+        <a class="navbar-brand" href="/">Home</a>
         <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
             &#9776;
         </button>
@@ -25,30 +25,32 @@
             <ul class="nav navbar-nav flex-row justify-content-between ml-auto">
                 <li class="nav-item order-2 order-md-1"><a href="#" class="nav-link" title="settings"><i class="fa fa-cog fa-fw fa-lg"></i></a></li>
                 <li class="dropdown order-1">
+                <% if user_signed_in? %>
+                    <button type="button" id="dropdownMenu1" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle"> <%= current_user.email%> <span class="caret"></span></button>
+                    <ul class="dropdown-menu dropdown-menu-right mt-2">
+                       <li class="px-3 py-2">
+                            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'caret' %> |
+                            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'caret'  %>
+                        </li>
+                    </ul>
+                    
+
+                <% else %>
                     <button type="button" id="dropdownMenu1" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Login <span class="caret"></span></button>
                     <ul class="dropdown-menu dropdown-menu-right mt-2">
                        <li class="px-3 py-2">
-                           <form class="form" role="form">
-                                <div class="form-group">
-                                    <input id="emailInput" placeholder="Email" class="form-control form-control-sm" type="text" required="">
-                                </div>
-                                <div class="form-group">
-                                    <input id="passwordInput" placeholder="Password" class="form-control form-control-sm" type="text" required="">
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-primary btn-block">Login</button>
-                                </div>
-                                <div class="form-group text-center">
-                                    <small><a href="#" data-toggle="modal" data-target="#modalPassword">Forgot password?</a></small>
-                                </div>
-                            </form>
+                           <%= render 'devise/sessions/new'%>
                         </li>
                     </ul>
+                <% end %>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+<br>
+<br>
+<br>
 
 <div id="modalPassword" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -67,16 +69,6 @@
         </div>
     </div>
 </div>
-  <p class="navbar-text pull-right">
-  <% if user_signed_in? %>
-    Logged in as <strong><%= current_user.email %></strong>.
-    <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-    <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-    <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-  <% end %>
-</p>
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
     <% end %>

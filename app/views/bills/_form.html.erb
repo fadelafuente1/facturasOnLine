@@ -23,6 +23,21 @@
   </p>
   <% hidden_field_tag 'company_id', @company.id %>
 
+  <%= f.fields_for :items do |item_form| %>
+    <p>
+        Descripción: <%= item_form.text_field :description %>
+    </p>
+    <p>
+        Tipo: <%= item_form.text_field :type %>
+    </p>
+    <p>
+        Monto: <%= item_form.number_field :amount %>
+    </p>
+    <% if @bill.id.present? %>
+      <%= task_form.check_box :_destroy %>
+      <%= task_form.label :_destroy, "Remove Task" %>
+    <% end %>
+  <% end %>
 
   <p> 
     total: <%= f.number_field :total %>

@@ -5,6 +5,7 @@ class BillsController < ApplicationController
 
     def new 
       @bill = Bill.new
+      @bill.items.build
       @company = Company.find(current_user.company_id)
     end
 
@@ -19,12 +20,24 @@ class BillsController < ApplicationController
 
       end
     end
+    def edit 
+      @bill = Bill.find(params[:id])
+    end
+    def update
+      @bill = Bill.find(params[:id])  
+      if @bill.update_attributes(bill_params)
+        redirect_to @bill, notice: 'Factura actualizada'
+      else
+        render :edit
+      end
+    end
+    
     private 
       def bill_params
         params.require(:bill).permit(:name, :billing_id, :total, :date,
                       :billing_address, :billing_name, :billing_city,
                        :billing_postal_code, :billing_cif, :company_id,
-                       , tasks_attributes: [:id, :description, :type,
+                        items_attributes: [:id, :description, :type,
                         :amount, :_destroy])
       end
 end

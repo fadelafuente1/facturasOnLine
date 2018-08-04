@@ -1,0 +1,8 @@
+<h1>Facturas</h1>
+
+<% for bill in @bills %>
+    <%= bill.name %>
+    <% for item in project.items %>
+        <%= item.description %>
+    <% end %>
+<% end %>

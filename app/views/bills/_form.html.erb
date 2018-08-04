@@ -1,0 +1,34 @@
+<h1>Nueva factura</h1>
+<%= form_for @bill do |f| %>
+  <p> 
+    Name: <%= f.text_field :name %>
+  </p>
+  <p> 
+    billing_id: <%= f.text_field :billing_id %>
+  </p>
+  <p> 
+    billing_address: <%= f.text_field :billing_address %>
+  </p>
+  <p> 
+    billing_name: <%= f.text_field :billing_name %>
+  </p>
+  <p> 
+    billing_city: <%= f.text_field :billing_city %>
+  </p>
+  <p> 
+    billing_postal_code: <%= f.text_field :billing_postal_code %>
+  </p>
+  <p> 
+    billing_cif: <%= f.text_field :billing_cif %>
+  </p>
+  <% hidden_field_tag 'company_id', @company.id %>
+
+
+  <p> 
+    total: <%= f.number_field :total %>
+  </p>
+
+  <p>
+    <%= f.submit 'Crear factura' %>
+  </p>
+<% end %>

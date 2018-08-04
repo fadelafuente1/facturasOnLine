@@ -22,7 +22,7 @@
   </div>
   <div class="field">
     <%= f.label :company_id %><br />
-    <%= f.number_field :company_id, autocomplete: "off" %>
+    <%= f.select :company_id, options_for_select(all_companies) %>
   </div>
 
   <div class="actions">

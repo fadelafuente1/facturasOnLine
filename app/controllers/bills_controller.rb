@@ -11,11 +11,12 @@ class BillsController < ApplicationController
 
     def create 
       @bill = Bill.new(bill_params)
-      if @bill.save
+      if @bill.save!
         flash[:notice] = 'Factura creada'
         redirect_to bills_path
       else
         flash[:notice] = 'Error al crear factura'
+        @company = Company.find(current_user.company_id)
         render :new
 
       end

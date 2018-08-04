@@ -21,7 +21,7 @@
   <p> 
     billing_cif: <%= f.text_field :billing_cif %>
   </p>
-  <% hidden_field_tag 'company_id', @company.id %>
+  <%= hidden_field_tag('bill[company_id]', @company.id) %>
 
   <table class="table">
   <thead>

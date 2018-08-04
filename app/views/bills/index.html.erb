@@ -2,7 +2,7 @@
 
 <% for bill in @bills %>
     <%= bill.name %>
-    <% for item in project.items %>
+    <% for item in bill.items %>
         <%= item.description %>
     <% end %>
 <% end %>

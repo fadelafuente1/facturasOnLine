@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :bills do 
     resources :items
   end
+  resources :companies
 end

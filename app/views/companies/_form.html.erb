@@ -1,0 +1,29 @@
+<%= form_for @company do |f| %>
+  <p> 
+    Name: <%= f.text_field :name %>
+  </p>
+  <p> 
+    address: <%= f.text_field :address %>
+  </p>
+  <p> 
+    cif: <%= f.text_field :cif %>
+  </p>
+  <p> 
+    email: <%= f.text_field :email %>
+  </p>
+  <p> 
+    logo_url: <%= f.text_field :logo_url %>
+  </p>
+  <p> 
+    account: <%= f.text_field :account %>
+  </p>
+  <p> 
+    contact_email: <%= f.text_field :contact_email %>
+  </p>
+   <p> 
+    contact_name: <%= f.text_field :contact_name %>
+  </p>
+    <p>
+    <%= f.submit 'Crear empresa' %>
+  </p>
+<% end %>

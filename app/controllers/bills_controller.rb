@@ -37,7 +37,7 @@ class BillsController < ApplicationController
         params.require(:bill).permit(:name, :billing_id, :total, :date,
                       :billing_address, :billing_name, :billing_city,
                        :billing_postal_code, :billing_cif, :company_id,
-                        items_attributes: [:id, :description, :type,
+                        items_attributes: [:id, :description, :item_type,
                         :amount, :_destroy])
       end
 end

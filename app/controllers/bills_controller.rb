@@ -32,6 +32,12 @@ class BillsController < ApplicationController
         render :edit
       end
     end
+
+    def add_item
+      respond_to do |format|
+        format.js{}
+      end
+    end
     
     private 
       def bill_params

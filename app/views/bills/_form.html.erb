@@ -23,32 +23,35 @@
   </p>
   <%= hidden_field_tag('bill[company_id]', @company.id) %>
 
-  <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Descripción</th>
-      <th scope="col">Tipo</th>
-      <th scope="col">Monto</th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% counter = 0%>
-    <%= f.fields_for :items do |item_form| %>
-      <% counter+=1%>
+  <table id="bills-form-table" class="table">
+    <thead>
       <tr>
-        <th scope="row"><%=counter%></th>
-        <td><%= item_form.text_field :description %></td>
-        <td><%= item_form.number_field :item_type %></td>
-        <td><%= item_form.number_field :amount %></td>
-        <td><%= item_form.check_box :_destroy %>
-        <%= item_form.label :_destroy, "Remove Task" %></td>        
+        <th scope="col">#</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Monto</th>
+        <th scope="col"></th>
       </tr>
-    <% end %>
-  </tbody>
+    </thead>
+    <tbody>
+      <% counter = 0%>
+      <%= f.fields_for :items do |item_form| %>
+        <% counter+=1%>
+        <tr>
+          <th scope="row"><%=counter%></th>
+          <td><%= item_form.text_field :description %></td>
+          <td><%= item_form.number_field :item_type %></td>
+          <td><%= item_form.number_field :amount %></td>
+          <td><%= item_form.check_box :_destroy %>
+          <%= item_form.label :_destroy, "Remove Task" %></td>        
+        </tr>
+      <% end %>
+    </tbody>
 </table>
 
+<%= link_to 'Agregar item','#', id:"add-item", class:"btn btn-primary", params:{'position' => counter} %>
+  <br>
+  <br>
   <p> 
     total: <%= f.number_field :total %>
   </p>

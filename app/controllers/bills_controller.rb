@@ -1,4 +1,5 @@
 class BillsController < ApplicationController
+    before_action :set_bill, only: [:show, :edit, :update, :destroy]
     def index
       @bills = Bill.all
     end
@@ -22,8 +23,11 @@ class BillsController < ApplicationController
 
       end
     end
+    def show
+
+    end
     def edit 
-      @bill = Bill.find(params[:id])
+
     end
     def update
       @bill = Bill.find(params[:id])  
@@ -33,6 +37,7 @@ class BillsController < ApplicationController
         render :edit
       end
     end
+
 
     def add_item
       @row_id = params['row_id'].to_i + 1
@@ -49,5 +54,8 @@ class BillsController < ApplicationController
                        :billing_postal_code, :billing_cif, :company_id,
                         items_attributes: [:id, :description, :item_type,
                         :amount, :_destroy])
+      end
+      def set_bill
+        @bill = Bill.find(params[:id])
       end
 end

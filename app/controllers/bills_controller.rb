@@ -6,6 +6,7 @@ class BillsController < ApplicationController
     def new 
       @bill = Bill.new
       @bill.items.build
+      @row_id = 0
       @company = Company.find(current_user.company_id)
     end
 
@@ -34,6 +35,8 @@ class BillsController < ApplicationController
     end
 
     def add_item
+      @row_id = params['row_id'].to_i + 1
+      puts(@row_id)
       respond_to do |format|
         format.js{}
       end

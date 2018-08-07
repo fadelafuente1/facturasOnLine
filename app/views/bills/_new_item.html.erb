@@ -1,11 +1,12 @@
 <tr>
-  <th scope="row"><%=counter%></th>
-  <td><input type="text" name="bill[items_attributes][1][description]" placeholder="Descripción" id="bill_items_attributes_1_description"></td>
-  <td><input type="number" name="bill[items_attributes][1][item_type]" placeholder="Tipo de item" id="bill_items_attributes_1_item_type"></td>
-  <td><input type="number" name="bill[items_attributes][1][amount]" placeholder="Monto" id="" id="bill_items_attributes_1_amount"></td>     
+  <th scope="row"><%=row_id%></th>
+  <td><input type="text" name="bill[items_attributes][<%=row_id%>][description]" placeholder="Descripción" id="bill_items_attributes_<%=row_id%>_description"></td>
+  <td><input type="number" name="bill[items_attributes][<%=row_id%>][item_type]" placeholder="Tipo de item" id="bill_items_attributes_<%=row_id%>_item_type"></td>
+  <td><input type="number" name="bill[items_attributes][<%=row_id%>][amount]" placeholder="Monto" id="" id="bill_items_attributes_<%=row_id%>_amount"></td>     
   <td>
-    <input name="bill[items_attributes][1][_destroy]" type="hidden" value="0">
-    <input type="checkbox" value="1" name="bill[items_attributes][1][_destroy]" id="bill_items_attributes_1__destroy">
-    <label for="bill_items_attributes_1__destroy">Remove Task</label>
+    <input name="bill[items_attributes][<%=row_id%>][_destroy]" type="hidden" value="0">
+    <input type="checkbox" value=<%=row_id%> name="bill[items_attributes][<%=row_id%>][_destroy]" id="bill_items_attributes_<%=row_id%>__destroy">
+    <label for="bill_items_attributes_"+<%=row_id%>+"__destroy">Remove Task</label>
+    <%= link_to 'Eliminar item','#', id:"delete-item", class:"btn btn-primary", params:{'position' => row_id} %>
   </td>
 </tr>

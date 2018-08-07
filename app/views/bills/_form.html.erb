@@ -34,22 +34,23 @@
       </tr>
     </thead>
     <tbody>
-      <% counter = 0%>
       <%= f.fields_for :items do |item_form| %>
-        <% counter+=1%>
         <tr>
-          <th scope="row"><%=counter%></th>
+          <th scope="row"><%=@row_id%></th>
           <td><%= item_form.text_field :description %></td>
           <td><%= item_form.number_field :item_type %></td>
           <td><%= item_form.number_field :amount %></td>
-          <td><%= item_form.check_box :_destroy %>
-          <%= item_form.label :_destroy, "Remove Task" %></td>        
+          <td>
+            <%= item_form.check_box :_destroy %>
+            <%= item_form.label :_destroy, "Remove Task" %> 
+            <%= link_to 'Eliminar item','#', id:"delete-item", class:"btn btn-primary", params:{'position' => @row_id} %>       
+          </td>
         </tr>
       <% end %>
     </tbody>
 </table>
 
-<%= link_to 'Agregar item','#', id:"add-item", class:"btn btn-primary", params:{'position' => counter} %>
+<%= link_to 'Agregar item','#', id:"add-item", class:"btn btn-primary", params:{'position' => @row_id} %>
   <br>
   <br>
   <p> 

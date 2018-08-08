@@ -1,3 +1,34 @@
 // Place all the styles related to the bills controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.bill-header{
+  font-weight:  bold;
+  color:  gray;
+  margin-top: 4%;
+  display:  block;
+  float:  right;
+  margin-right: 20%;
+}
+.show-bill{
+  margin: 10%
+}
+.bill-company-body{
+  margin-bottom: 0.25rem;
+}
+.bill-company-body.underline{
+  text-decoration: underline;
+}
+#bill-company{
+  margin-top: 2%;
+}
+.bill-date{
+  display:  block;
+}
+.billing-info-header{
+  margin-top: 3%;
+  margin-bottom: 1%;
+}
+.billing-info{
+  margin-bottom: 0;
+}
+

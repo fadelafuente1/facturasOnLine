@@ -1,0 +1,75 @@
+<div class="show-bill">
+  <div class="logo">
+    <div class="row">
+      <div class="col-md-7">
+        <img id="user-company-logo" height="100" src=/<%=@user_company.logo_url%> >
+      </div>
+      <div class="col-md-5">
+        <h1 class="bill-header">FACTURA</h1>
+      </div>
+    </div> 
+    <div class="row">
+      <div class="col-md-6" id="bill-company">
+        <h5 class="bill-company-name">
+            <%= @user_company.name%>
+          </h5>
+          <h6 class="bill-company-body">
+            <%= @user_company.address%>
+          </h6>
+          <h6 class="bill-company-body">
+            CIF <%= @user_company.cif%>
+          </h6>
+          <h6 class="bill-company-body underline">
+            <%= @user_company.email%>
+          </h6>
+      </div>
+      <div class="col-md-4">
+        <h6 class="bill-date" align="right">
+          FECHA EMISIÓN FACTURA:
+        </h6>
+        <h6 class="bill-date" align="right">
+          NÚMERO DE FACTURA:
+        </h6>
+      </div>
+      <div class="col-md-2">
+        <h6 class="bill-date" align="right">
+          <%=change_date_format(@bill.date)%>
+        </h6>
+        <h6 class="bill-date" align="right">
+            <%=@bill.billing_id%>/<%=@bill.date.year%>
+        </h6>
+      </div>
+    </div> 
+    <div class="row">
+      <div class="col-md-8 billing-info-header">
+        <h5>
+          Facturar a:
+        </h5>
+        <h6 class="billing-info">
+          Dirección
+        </h6>
+        <h6 class="billing-info">
+          Ciudad, Código postal
+        </h6>
+        <h6 class="billing-info">
+          CIF:
+        </h6>
+      </div>
+      <div class="col-md-4 billing-info-header">
+        <h5 align="right">
+            <%= @bill.billing_name%>
+          </h5>
+          <h6 class="billing-info" align="right">
+              <%= @bill.billing_address%>
+          </h6>
+          <h6 class="billing-info" align="right">
+              <%= @bill.billing_city%>, <%= @bill.billing_postal_code%>
+          </h6>
+          <h6 class="billing-info" align="right">
+            <%= @bill.billing_cif%>
+          </h6>
+      </div>
+    </div>
+  </div>
+</div>
+

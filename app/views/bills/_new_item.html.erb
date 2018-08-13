@@ -2,7 +2,7 @@
   <th scope="row"><%=row_id%></th>
   <td><input type="text" name="bill[items_attributes][<%=row_id%>][description]" placeholder="Descripción" id="bill_items_attributes_<%=row_id%>_description"></td>
   <td><input type="number" name="bill[items_attributes][<%=row_id%>][item_type]" placeholder="Tipo de item" id="bill_items_attributes_<%=row_id%>_item_type"></td>
-  <td><input type="number" name="bill[items_attributes][<%=row_id%>][amount]" placeholder="Monto" id="" id="bill_items_attributes_<%=row_id%>_amount"></td>     
+  <td class="amount-field"><input type="number" name="bill[items_attributes][<%=row_id%>][amount]" placeholder="Monto" id="" id="bill_items_attributes_<%=row_id%>_amount"></td>     
   <td>
     <input name="bill[items_attributes][<%=row_id%>][_destroy]" type="hidden" value="0">
     <input type="checkbox" value=<%=row_id%> name="bill[items_attributes][<%=row_id%>][_destroy]" id="bill_items_attributes_<%=row_id%>__destroy">

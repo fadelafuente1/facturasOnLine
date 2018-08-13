@@ -1,7 +1,6 @@
 class BillsController < ApplicationController
   before_action :set_bill, only: [:show, :edit, :update, :destroy]
   before_action :set_user_company, only: [:show]
-  before_action :set_bill_company, only: [:show]
   
   def index
     @bills = Bill.all
@@ -63,7 +62,5 @@ class BillsController < ApplicationController
     end
     def set_user_company
       @user_company = @bill.company
-    end
-    def set_bill_company
     end
   end

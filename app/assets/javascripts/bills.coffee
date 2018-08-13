@@ -20,5 +20,16 @@ $(document).on 'turbolinks:load', ->
       url: '/bills/add_item/',
       dataType: 'script',
       data: {row_id: row_id}
-    })
+    }) 
+$(document).on 'change', '.amount-field', (e) ->
+  e.preventDefault()
+  value = this.children[0].value
+  sum = 0
+  $('.amount-field').each ->
+    amount = $(this)[0].children[0].value
+    if !isNaN(amount) and amount.length != 0
+      sum += parseFloat(amount)
+    $('#item-total').html(sum)
+    $('#bill_total').val(sum) 
+
 

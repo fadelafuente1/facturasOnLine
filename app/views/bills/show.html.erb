@@ -70,6 +70,44 @@
           </h6>
       </div>
     </div>
+    <div id="box-items">
+      <div class="header-table">
+        <div class="row">
+          <div class="col-md-10 right-border padding-top-1">
+            <h5 align="center">Descripción</h5>
+          </div>
+          <div class="col-md-2 padding-top-1">
+            <h5 align="center">Cantidad</h5>
+          </div>
+        </div>
+      </div>
+      <%@bill.items.each do |item|%>
+          <div class="row">
+            <div class="col-md-10 right-border">
+              <h5 class="padding-1"><%=item.description%></h5>
+            </div>
+            <div class="col-md-2"> 
+              <h5 align="right" class="padding-1"><%=item.amount%>€</h5>
+            </div>
+          </div>
+        <%end%>
+    </div>
+    <div id="box-resume">
+      <div class="row">
+        <div class="col-md-4 padding-1">
+          <h5 align="left">Base imponible</h5>
+        </div>
+        <div class="col-md-3 padding-1">
+          <h5 align="left">IVA</h5>
+        </div> 
+        <div class="col-md-3 right-border padding-1">
+            <h5 align="left">Cuota</h5>
+        </div>
+        <div class="col-md-2 padding-1">
+          <h5 align="center">Cuota total</h5>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
